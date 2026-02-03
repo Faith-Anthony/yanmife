@@ -10,8 +10,9 @@ const Contact = () => {
     setResult("Transmitting...");
     const formData = new FormData(event.target);
 
-    // ADD YOUR KEY HERE
+    // This pulls your key from the Vercel/Local Environment Variables
     formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
+
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       body: formData
@@ -21,16 +22,15 @@ const Contact = () => {
 
     if (data.success) {
       setResult("Inquiry Received");
-      event.target.reset();
+      // This is the notification alert you requested
+      alert("Inquiry Transmitted Successfully! Yanmife will get back to you shortly.");
+      event.target.reset(); // This clears the form
     } else {
       console.log("Error", data);
       setResult(data.message);
+      alert("Transmission failed: " + data.message);
     }
   };
-
-
-
-
 
   return (
     <section id="contact" className="py-24 px-6 md:px-20 bg-black border-t border-white/5">
@@ -57,13 +57,13 @@ const Contact = () => {
           </div>
 
           <div className="flex gap-8 items-center">
-            <a href="https://www.instagram.com/yanmifeofficial?igsh=MXNrYzZ5MnBiYjAzcw==" target="_blank" className="text-zinc-500 hover:text-red-600 transition-colors">
+            <a href="https://www.instagram.com/yanmifeofficial?igsh=MXNrYzZ5MnBiYjAzcw==" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-red-600 transition-colors">
               <Instagram size={28} />
             </a>
-            <a href="https://www.linkedin.com/in/oluwayanmife-oyekan-744294341?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" className="text-zinc-500 hover:text-red-600 transition-colors">
+            <a href="https://www.linkedin.com/in/oluwayanmife-oyekan-744294341?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-red-600 transition-colors">
               <Linkedin size={28} />
             </a>
-            <a href="mailto:YanmifeOyekan@gmail.com" className="text-zinc-500 hover:text-red-600 transition-colors">
+            <a href="mailto:yanmifeoyekan@gmail.com" className="text-zinc-500 hover:text-red-600 transition-colors">
               <Mail size={28} />
             </a>
           </div>
@@ -76,25 +76,47 @@ const Contact = () => {
           viewport={{ once: true }}
           className="bg-zinc-900/20 border border-white/5 p-8 md:p-12 rounded-3xl"
         >
-          <form className="space-y-6">
+          {/* CRITICAL FIX: Added onSubmit here */}
+          <form onSubmit={onSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Name</label>
-                <input type="text" className="w-full bg-black border border-white/10 rounded-sm px-4 py-3 text-white focus:border-red-600 outline-none transition-colors" placeholder="YOUR NAME" />
+                {/* CRITICAL FIX: Added name="name" */}
+                <input 
+                  name="name"
+                  type="text" 
+                  required
+                  className="w-full bg-black border border-white/10 rounded-sm px-4 py-3 text-white focus:border-red-600 outline-none transition-colors" 
+                  placeholder="YOUR NAME" 
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Email</label>
-                <input type="email" className="w-full bg-black border border-white/10 rounded-sm px-4 py-3 text-white focus:border-red-600 outline-none transition-colors" placeholder="EMAIL@OFFICE.COM" />
+                {/* CRITICAL FIX: Added name="email" */}
+                <input 
+                  name="email"
+                  type="email" 
+                  required
+                  className="w-full bg-black border border-white/10 rounded-sm px-4 py-3 text-white focus:border-red-600 outline-none transition-colors" 
+                  placeholder="EMAIL@OFFICE.COM" 
+                />
               </div>
             </div>
             
             <div className="space-y-2">
               <label className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Project Description</label>
-              <textarea rows="4" className="w-full bg-black border border-white/10 rounded-sm px-4 py-3 text-white focus:border-red-600 outline-none transition-colors resize-none" placeholder="DESCRIBE THE SCOPE..." />
+              {/* CRITICAL FIX: Added name="message" */}
+              <textarea 
+                name="message"
+                required
+                rows="4" 
+                className="w-full bg-black border border-white/10 rounded-sm px-4 py-3 text-white focus:border-red-600 outline-none transition-colors resize-none" 
+                placeholder="DESCRIBE THE SCOPE..." 
+              />
             </div>
 
             <button type="submit" className="w-full group flex items-center justify-center gap-3 bg-red-600 hover:bg-white text-white hover:text-black font-black uppercase tracking-widest py-4 transition-all duration-500">
-              Transmit Inquiry
+              {result ? result : "Transmit Inquiry"}
               <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
             </button>
           </form>
