@@ -69,13 +69,12 @@ const Portfolio = () => {
             className={`${project.size} relative group overflow-hidden rounded-3xl border border-white/5 bg-zinc-900`}
           >
             {/* 1. BACKGROUND IMAGE LAYER */}
-            <div className="absolute inset-0 z-0">
-              {project.img ? (
-                <img 
-                  src={project.img} 
-                  alt={project.title}
-                  className="w-full h-full object-cover opacity-30 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-in-out"
-                />
+            <div className="relative group cursor-pointer overflow-hidden rounded-xl">
+  <img 
+    src={project.img} 
+    alt={project.title}
+    className="w-full h-full object-cover grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 active:grayscale-0 active:opacity-100 active:scale-105"
+  />
               ) : (
                 <div className="w-full h-full bg-zinc-800 opacity-20" /> // Fallback if no image
               )}
