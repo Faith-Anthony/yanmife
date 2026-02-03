@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 // Import the image from the assets folder
-import heroImage from '../assets/hero-yan.jpg';
+import heroImg from '../assets/hero-yan.JPG';
 
 const Hero = () => {
   return (
@@ -10,7 +10,7 @@ const Hero = () => {
       {/* BACKGROUND IMAGE LAYER */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroImage} 
+          src={heroImg} 
           alt="Yanmife Cinematography" 
           className="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-1000"
         />
