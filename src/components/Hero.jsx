@@ -5,7 +5,7 @@ import heroImg from '../assets/hero.jpg';
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex flex-col justify-center px-6 md:px-20 overflow-hidden bg-black">
+    <section id="hero" className="relative min-h-screen w-full bg-black flex items-center">
       
       {/* BACKGROUND IMAGE LAYER */}
       <div className="absolute inset-0 z-0">
