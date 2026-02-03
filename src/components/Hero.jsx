@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 // Import the image from the assets folder
-import heroImg from '../assets/yan-hero.jpg';
+import heroImg from '../assets/hero.jpg';
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImg} 
-          alt="Yanmife Cinematography" 
+          alt="Hero" 
           className="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-1000"
         />
         {/* Dark gradient to ensure text is readable */}
