@@ -33,7 +33,7 @@ const Contact = () => {
   return (
     <section id="contact" className="relative py-24 px-6 md:px-20 bg-black border-t border-white/5">
       
-      {/* --- CUSTOM SUCCESS MODAL --- */}
+      
       <AnimatePresence>
         {isSuccess && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/90 backdrop-blur-md">
@@ -128,7 +128,7 @@ const Contact = () => {
         </motion.div>
       </div>
 
-      {/* FOOTER CREDITS */}
+      
       <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-[10px] font-mono text-zinc-700 uppercase tracking-widest">© 2026 Yanmife Oyekan // All Rights Reserved</p>
         <div className="flex items-center gap-2">

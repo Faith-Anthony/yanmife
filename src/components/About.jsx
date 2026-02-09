@@ -6,7 +6,7 @@ const About = () => {
 
 <section id="about" className="pt-32 pb-10 px-6 md:px-20 bg-black overflow-hidden">
       
-      {/* 1. THE STATEMENT (The "Solution Creator" Hook) */}
+      
       <motion.div 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
