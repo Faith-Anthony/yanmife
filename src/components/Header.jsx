@@ -1,20 +1,21 @@
-import React from 'react';
+import React from "react";
 
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50 px-6 py-5 md:px-20 flex justify-between items-center backdrop-blur-md bg-black/60 border-b border-white/5">
-      
-<a 
-  href="#hero" 
-  className="text-xl font-black uppercase tracking-tighter transition-colors cursor-pointer flex items-center gap-1"
->
-  <span className="text-white">Yanmife</span>
-  <span className="text-red-600 italic hover:text-white transition-colors">Oyekan</span>
-</a>
+      <a
+        href="#hero"
+        className="text-xl font-black uppercase tracking-tighter transition-colors cursor-pointer flex items-center gap-1"
+      >
+        <span className="text-white">Yanmife</span>
+        <span className="text-red-600 italic hover:text-white transition-colors">
+          Oyekan
+        </span>
+      </a>
 
       {/* 2. CENTERED NAVIGATION */}
       <nav className="hidden lg:flex items-center gap-12 absolute left-1/2 -translate-x-1/2">
-        {['Home', 'About', 'Portfolio', 'Contact'].map((item) => (
+        {["Home", "About", "Portfolio", "Contact"].map((item) => (
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
@@ -25,10 +26,10 @@ const Header = () => {
         ))}
       </nav>
 
-      <div className="flex-shrink-0">
-        <a 
-          href="/Yanmife_CV.pdf" 
-          download 
+      <div className="shrink-0">
+        <a
+          href="/Yanmife_CV.pdf"
+          download
           className="px-5 py-2 border border-red-600 text-red-600 text-[10px] font-mono uppercase tracking-widest font-bold hover:bg-red-600 hover:text-white transition-all duration-300 rounded-sm"
         >
           Download CV
