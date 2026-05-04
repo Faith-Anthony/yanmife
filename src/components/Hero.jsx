@@ -50,10 +50,10 @@ const Hero = () => {
         </h1>
 
         <div className="mt-10 border-l-2 border-red-600 pl-6">
-          <p className="max-w-md text-zinc-300 text-lg md:text-xl leading-relaxed">
-            Media Production student specializing in
-            <span className="text-white"> Camerawork</span> and
-            <span className="text-white"> Live Production</span>.
+          <p className="max-w-lg text-zinc-300 text-lg md:text-xl leading-relaxed">
+            Media Production student with practical experience in camera
+            operation, live production, post production and digital content
+            creation.
           </p>
         </div>
       </motion.div>

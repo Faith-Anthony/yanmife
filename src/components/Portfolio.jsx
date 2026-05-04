@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-import woodfireImg from '../assets/woodfire.JPG';
-import itsmyshoutImg from '../assets/itsmyshout.jpg';
-import skillswalesImg from '../assets/skillswales.JPG';
-import gwylcefniImg from '../assets/gwylcefni.jpg';
+import woodfireImg from "../assets/woodfire.JPG";
+import itsmyshoutImg from "../assets/itsmyshout.jpg";
+import skillswalesImg from "../assets/skillswales.JPG";
+import gwylcefniImg from "../assets/gwylcefni.jpg";
 
 const projects = [
   {
@@ -12,41 +12,45 @@ const projects = [
     title: "Wood Fire Shack",
     category: "Commercial Advert",
     role: "Director & Editor",
-    description: "Screened at Pontio Cinema. High-impact visual storytelling.",
+    description:
+      "Produced a commercial advert for a local business, managing the full production process from concept and scripting to filming and editing. Screened at Pontio Cinema as part of a public showcase.",
     link: "https://youtu.be/rNeFzKZR338",
     size: "md:col-span-2 md:row-span-2",
-    img: woodfireImg
+    img: woodfireImg,
   },
   {
     id: 2,
     title: "It's My Shout",
     category: "BBC / S4C Production",
-    role: "Camera Assistant",
-    description: "Professional broadcast sets for major UK networks.",
-    link: "https://www.bbc.co.uk/programmes/p05nkz6t", 
+    role: "Stills Photographer & Camera Assistant",
+    description:
+      "Worked on short films produced by It’s My Shout for BBC and S4C, assisting the camera department with equipment setup and capturing behind the scenes stills on professional broadcast sets.",
+    link: "https://www.bbc.co.uk/programmes/p05nkz6t",
     size: "md:col-span-1 md:row-span-1",
-    img: itsmyshoutImg
+    img: itsmyshoutImg,
   },
   {
     id: 3,
     title: "Skills Wales",
     category: "Music Competition",
     role: "Camera Operator",
-    description: "Multi-camera setups and live vision mixing.",
+    description:
+      "Filmed live performances using multi camera setups, working alongside crew to ensure smooth coverage and coordination for event production at Pontio Bangor.",
     link: "https://youtu.be/BABslqTz5KE?list=RDBABslqTz5KE",
     size: "md:col-span-1 md:row-span-1",
-    img: skillswalesImg
+    img: skillswalesImg,
   },
   {
     id: 4,
     title: "Gwyl Cefni Festival",
-    category: "Aerial Production",
-    role: "UAV Operator",
-    description: "Capturing unique perspectives and sweeping cinematic angles.",
-    link: "https://menteriaithmon.cymru/en/the-community/gwyl-cefni",
+    category: "Live Event Production",
+    role: "Camera Operator",
+    description:
+      "Filmed live music performances for big screen projection, working within a multi camera setup to ensure smooth coverage for a large audience event.",
+    link: "https://www.mentermon.com/en/newyddion/gwyl-cefni-blwyddyn-i-edrych-ymlaen-a-datblygu/",
     size: "md:col-span-2 md:row-span-1",
-    img: gwylcefniImg
-  }
+    img: gwylcefniImg,
+  },
 ];
 
 const Portfolio = () => {
@@ -68,19 +72,21 @@ const Portfolio = () => {
         {projects.map((project) => (
           <div
             key={project.id}
-            // Logic: If this project is the active one, keep it bright. 
+            // Logic: If this project is the active one, keep it bright.
             // If you tap it again, it closes. If you tap another, this one closes.
-            onClick={() => setActiveProject(activeProject === project.id ? null : project.id)}
+            onClick={() =>
+              setActiveProject(activeProject === project.id ? null : project.id)
+            }
             className={`${project.size} relative group overflow-hidden rounded-3xl border border-white/5 bg-zinc-900 transition-all cursor-pointer`}
           >
             {/* 1. BACKGROUND IMAGE LAYER */}
             <div className="absolute inset-0 w-full h-full">
               {project.img ? (
-                <img 
-                  src={project.img} 
+                <img
+                  src={project.img}
                   alt={project.title}
                   className={`w-full h-full object-cover transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 
-                    ${activeProject === project.id ? 'grayscale-0 opacity-100 scale-105' : 'grayscale opacity-60'}`}
+                    ${activeProject === project.id ? "grayscale-0 opacity-100 scale-105" : "grayscale opacity-60"}`}
                 />
               ) : (
                 <div className="w-full h-full bg-zinc-800 opacity-20" />
@@ -99,19 +105,21 @@ const Portfolio = () => {
               <p className="text-zinc-400 text-sm font-medium mb-3">
                 {project.role}
               </p>
-              
+
               {/* Description Reveal Logic */}
-              <p className={`text-zinc-300 text-xs leading-relaxed max-w-xs transition-all duration-500 
+              <p
+                className={`text-zinc-300 text-xs leading-relaxed max-w-xs transition-all duration-500 
                 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0
-                ${activeProject === project.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                ${activeProject === project.id ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              >
                 {project.description}
               </p>
             </div>
 
             {/* 3. FUNCTIONAL LINK ARROW */}
-            <a 
-              href={project.link} 
-              target="_blank" 
+            <a
+              href={project.link}
+              target="_blank"
               rel="noopener noreferrer"
               className="absolute top-8 right-8 w-12 h-12 border border-white/20 rounded-full flex items-center justify-center z-20 
                          hover:bg-red-600 hover:border-red-600 active:bg-red-600 active:border-red-600 
@@ -119,7 +127,18 @@ const Portfolio = () => {
               onClick={(e) => e.stopPropagation()} // Prevents tapping the arrow from toggling the image state
               title="View Project"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
             </a>
           </div>
         ))}
